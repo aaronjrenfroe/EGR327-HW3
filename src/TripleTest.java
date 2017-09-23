@@ -3,42 +3,42 @@ import org.junit.Test;
 
 /**
  * Created by AaronR on 9/23/17.
- * for ?
+ * for EGR327
  */
 public class TripleTest {
 
     @Test
     public void testGenerics1() {
-        Triple<String, Integer, Double> triple = new Triple<>("left", new Integer(2), new Double(3.0));
+        Triple<String> triple = new Triple<>("left", "middle", "right");
         Assert.assertEquals(String.class, triple.getLeft().getClass());
-        Assert.assertEquals(Integer.class, triple.getMiddle().getClass());
-        Assert.assertEquals(Double.class, triple.getRight().getClass());
+        Assert.assertEquals(String.class, triple.getMiddle().getClass());
+        Assert.assertEquals(String.class, triple.getRight().getClass());
 
     }
 
     @Test
     public void testGenerics2() {
-        Triple<Integer, Double, String> triple = new Triple<>(new Integer(1), new Double(2.0), "right");
+        Triple<Integer> triple = new Triple<>(1, 2, 3);
         Assert.assertEquals(Integer.class, triple.getLeft().getClass());
-        Assert.assertEquals(Double.class, triple.getMiddle().getClass());
-        Assert.assertEquals(String .class, triple.getRight().getClass());
+        Assert.assertEquals(Integer.class, triple.getMiddle().getClass());
+        Assert.assertEquals(Integer .class, triple.getRight().getClass());
 
     }
 
     @Test
     public void testGenerics3() {
-        Triple<Double, String, Integer> triple = new Triple<>(new Double(1.0), "middle", new Integer(3));
+        Triple<Double> triple = new Triple<>(1.0,2.0, 3.0);
         Assert.assertEquals(Double.class, triple.getLeft().getClass());
-        Assert.assertEquals(String.class, triple.getMiddle().getClass());
-        Assert.assertEquals(Integer.class, triple.getRight().getClass());
+        Assert.assertEquals(Double.class, triple.getMiddle().getClass());
+        Assert.assertEquals(Double.class, triple.getRight().getClass());
     }
 
     @Test
     public void testGetters() {
-        Triple<Double, String, Integer> triple = new Triple<>(new Double(1.0), "middle", new Integer(3));
+        Triple<Double> triple = new Triple<>(1.0, 2.0, 3.0);
         Double left = triple.getLeft();
-        String middle = triple.getMiddle();
-        Integer right = triple.getRight();
+        Double middle = triple.getMiddle();
+        Double right = triple.getRight();
 
         Assert.assertEquals(left, triple.getLeft());
         Assert.assertEquals(right, triple.getRight());
@@ -48,11 +48,11 @@ public class TripleTest {
 
     @Test
     public void testSetters() {
-        Double left = 1.0;
+        String left = "left";
         String middle = "middle";
-        Integer right = 3;
+        String right = "right";
 
-        Triple<Double, String, Integer> triple = new Triple<>(0.0, "", 0);
+        Triple<String> triple = new Triple<>("","", "");
 
         Assert.assertNotEquals(left, triple.getLeft());
         Assert.assertNotEquals(right, triple.getRight());
@@ -70,9 +70,9 @@ public class TripleTest {
 
     @Test
     public void testToString(){
-        Triple<Double, String, Integer> triple = new Triple<>(0.0, "foo", 0);
+        Triple<String> triple = new Triple<>("foo", "bar", "bat");
         String string = triple.toString();
-        Assert.assertEquals("(0.0, foo, 0)",string);
+        Assert.assertEquals("(foo, bar, bat)",string);
     }
 
 }
